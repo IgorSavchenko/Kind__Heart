@@ -1,0 +1,50 @@
+//GILROY fonts
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/gilroy-light-webfont.woff2') format('woff2'),
+  url('../fonts/gilroy-light-webfont.woff') format('woff');
+  font-weight: 300;//light
+  font-style: normal;
+
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/gilroy-extrabold-webfont.woff2') format('woff2'),
+         url('../fonts/gilroy-extrabold-webfont.woff') format('woff');
+    font-weight: 800;//extrabold
+    font-style: normal;
+
+}
+//GEOMETRIA fonts
+@font-face {
+    font-family: 'Geometria';
+    src: url('../fonts/Geometria-Light.woff2') format('woff2'),
+         url('../fonts/Geometria-Light.woff') format('woff');
+    font-weight: 300;//light
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Geometria';
+    src: url('../fonts/Geometria.woff2') format('woff2'),
+         url('../fonts/Geometria.woff') format('woff');
+    font-weight: 400;//normal
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Geometria';
+    src: url('../fonts/Geometria-Bold.woff2') format('woff2'),
+         url('../fonts/Geometria-Bold.woff') format('woff');
+    font-weight: 700;//bold
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Geometria';
+    src: url('../fonts/Geometria-ExtraBold.woff2') format('woff2'),
+         url('../fonts/Geometria-ExtraBold.woff') format('woff');
+    font-weight: 800;//extrabold
+    font-style: normal;
+
+}

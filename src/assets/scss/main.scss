@@ -1,0 +1,524 @@
+//bulma
+@import "bulma/bulma";
+//fonts
+@import "helpers/fonts";
+//responsive
+@import "helpers/media-queries";
+//=======================================================
+// variables
+$color-black: #000000;
+$color-white: #ffffff;
+$color-dark: #282b4a;
+$color-grey: #9299a3;
+$color-lightgrey: #c5d5e6;
+$color-ultralightgrey: #fafafa;
+$color-milk: #f3f7fa;
+$color-lightblue: #498fe1;
+$color-darkblue: #363a5d;
+$color-purple: #9c5d9a;
+$color-almostred: #e73452;
+$font-Gilroy: 'Gilroy', sans-serif;
+$font-Geometria: 'Geometria', sans-serif;
+//=======================================================
+//mixins
+@mixin resetLinkStyles {
+  text-decoration: none;
+  color: $color-grey;
+  font-size: 16px;
+}
+@mixin resetListStyles {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+//=======================================================
+//common styles
+* {
+  box-sizing: border-box;
+}
+html {
+  position: relative;
+  background-color: $color-ultralightgrey;
+  @include desktop-min {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+svg path {
+    fill: inherit;
+}
+body {
+  position: relative;
+  margin: 75px 50px;
+  max-width: 1340px;
+  font-family: $font-Gilroy;
+  font-weight: 400;
+  font-size: 18px;
+  background-color: $color-white;
+  // color: $color-white;
+  border-radius: 10px;
+  box-shadow: 3px 4px 10px rgba(0,0,0,0.2);
+  @include desktop-min {
+    margin: 100px auto 50px;
+  }
+}
+//=======================================================
+//styles
+.container {
+  position: relative;
+  // max-width: 1137px;
+  padding: 25px 25px 110px;
+  @include tablet-min {
+    padding-bottom: 150px;
+  }
+  @include desktop-min {
+    padding: 40px 40px 190px;
+  }
+  @include widescreen-min {
+    padding: 50px 60px 190px 140px;
+  }
+}
+.columns {
+  justify-content: space-between;
+  &.is-gapless:not(:last-child) {
+    margin-bottom: 0;// bulma's default bottom gap fix
+  }
+  .column {
+    width: 100%;
+    @include tablet-min {
+      &:not(:last-of-type) {
+        margin-right: 40px !important;
+      }
+    }
+    @include desktop-min {
+      // width: calc(50% - 20px);
+      max-width: 350px;
+      &:not(:last-of-type) {
+        margin-right: 20px !important;
+      }
+    }
+    @include widescreen-min {
+      max-width: 420px;
+    }
+  }
+}
+.input:focus,
+.input.is-focused,
+.input:active,
+.input.is-active {
+  border-color: $color-lightblue;
+  box-shadow: 0 0 0 0.125em rgba($color-lightblue,0.25);
+}
+.tabs {
+  @include resetListStyles;
+  display: flex;
+  justify-content: center;
+  &__content {
+    @include resetListStyles;
+    width: 100%;
+  }
+}
+.tab {
+  padding: 10px;
+  font-family: $font-Geometria;
+  font-size: 14px;
+  font-weight: 700;
+  color: $color-darkblue;
+  border: 1px solid $color-darkblue;
+  border-collapse: collapse;
+  cursor: pointer;
+  transition: color 0.5s, background-color 0.5s;
+  @include tablet-min {
+    padding: 14px 21px 12px;
+  }
+  &:first-of-type {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  &:last-of-type {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  &:hover, &.active {
+    color: $color-white;
+    background-color: $color-darkblue;
+  }
+  &__content {
+    // margin: 0 auto;
+    margin: 60px 25px 0;
+    @include widescreen-min {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    &__field {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 25px;
+      @include desktop-min {
+        max-width: 350px;
+        margin-bottom: 50px;
+      }
+      @include widescreen-min {
+        max-width: 420px;
+      }
+      &--small {
+        margin-bottom: 25px !important; // bulma's default bottom gap fix
+        @include desktop-min {
+          margin-bottom: 50px !important;
+          // max-width: 200px;
+          max-width: calc(50% - 10px);
+          &:not(:last-of-type) {
+            margin-right: 20px !important;
+          }
+        }
+      }
+      label {
+        position: absolute;
+        left: 0;
+        top: -20px;
+        right: 0;
+        bottom: 0;
+        font-family: $font-Geometria;
+        font-size: 14px;
+        font-weight: 700;
+        color: $color-grey;
+        &[for="file"] {
+          display: none;
+          @include desktop-min {
+            display: block;
+            left: calc(100% + 10px);
+            top: 10px;
+            width: 72px;
+            height: 19px;
+            color: $color-lightblue;
+            cursor: pointer;
+          }
+          @include widescreen-min {
+            left: calc(100% + 20px);
+          }
+        }
+      }
+      .input {
+        background-color: $color-ultralightgrey;
+        &[type="file"] {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.close {
+  position: absolute;
+  right: 0px;
+  top: -70px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.title {
+  font-family: $font-Geometria;
+  font-size: 48px;
+  font-weight: 400;
+  color: $color-dark;
+  text-align: center;
+  @include tablet-min {
+    font-size: 64px;
+  }
+}
+.subtitle {
+  font-weight: 300;
+  text-align: center;
+  color: $color-dark;
+}
+.welfare {
+  &__list {
+    @include resetListStyles;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include tablet-min {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+  &__item {
+    position: relative;
+    width: 229px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-lightgrey;
+    cursor: pointer;
+    @include desktop-min {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+  &__logo {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $color-lightgrey;
+    border-radius: 10px;
+    transition: background-color 0.5s, border-color 0.5s;
+    @include desktop-min {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    @include widescreen-min {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    svg {
+      fill: currentColor;
+      transition: color 0.5s;
+    }
+  }
+  &__item.active &__logo,
+  &__item:hover &__logo {
+    background-color: $color-purple;
+    border-color: $color-purple;
+    svg {
+      fill: $color-white;
+    }
+  }
+  &__name {
+    position: relative;
+    max-width: 115px;
+    font-family: $font-Geometria;
+    text-align: center;
+    transition: color 0.5s;
+    @include desktop-min {
+      text-align: left;
+      top: 5px;
+    }
+  }
+  &__item.active &__name,
+  &__item:hover &__name {
+    color: $color-dark;
+  }
+  &__content {
+    position: relative;
+    display: none;
+    visibility: hidden;
+    padding: 25px 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $color-lightgrey;
+    border-radius: 20px;
+    transition: visibility 0.5s;
+    &:after, &:before {
+      content: " ";
+      position: absolute;
+      width: 0;
+      height: 0;
+	    bottom: 100%;
+	    left: 50%;
+      border: solid transparent;
+      pointer-events: none;
+      @include tablet-min {
+        left: 37%;
+      }
+      @include desktop-min {
+        left: 30.5%;
+      }
+      @include widescreen-min {
+        left: 31.5%;
+      }
+    }
+    &:after {
+	    border-color: rgba($color-lightgrey, 0);
+	    border-bottom-color: $color-white;
+	    border-width: 20px;
+	    margin-left: -20px;
+    }
+    &:before {
+	    border-color: rgba($color-lightgrey, 0);
+	    border-bottom-color: $color-lightgrey;
+	    border-width: 21px;
+	    margin-left: -21px;
+    }
+    @include tablet-min {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 40px 20px 0;
+    }
+    &.active {
+      display: flex;
+      visibility: visible;
+    }
+    p {
+      position: absolute;
+      left: 0;
+      bottom: 100%;
+      font-family: $font-Geometria;
+      font-size: 14px;
+      font-weight: 700;
+      color: $color-grey;
+      text-align: left;
+    }
+    &__list {
+      position: relative;
+      max-width: 570px;
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      color: $color-white;
+      p {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      svg {
+        fill: $color-white;
+      }
+      @include tablet-min {
+        justify-content: flex-start;
+        margin-bottom: 0;
+        p {
+          left: 0;
+          transform: translateX(0%);
+        }
+      }
+    }
+    &__item {
+      width: 170px;
+      height: 85px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $color-lightgrey;
+      margin-bottom: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding-top: 20px;
+      padding-bottom: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.5s;
+      @include tablet-min {
+        margin-left: 0;
+      }
+      &.active, &:hover {
+        background-color: $color-purple;
+        color: $color-white;
+      }
+      svg.iconTerminal {
+        position: relative;
+        bottom: 12px;
+      }
+      svg + svg {
+        margin-left: 20px;
+      }
+      span {
+        font-size: 12px;
+        font-weight: 300;
+      }
+    }
+    &__card {
+      position: relative;
+      width: 375px;
+      height: 188px;
+      margin-bottom: 20px;
+      padding: 40px 25px 20px;
+      background-color: $color-lightgrey;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background-color 0.5s;
+      &:hover {
+        background-color: $color-purple;
+      }
+      &__input {
+        height: 40px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: $color-milk;
+      }
+      &__number {
+        position: relative;
+        p {
+          color: $color-white;
+        }
+        & .columns .column {
+          margin-right: 10px !important;
+        }
+        & input {
+          width: 74px;
+        }
+      }
+      &__data {
+        .columns {
+          width: 100%;
+          .column {
+            position: relative;
+            width: calc(50% - 65px/2);
+            &:not(:last-child) {
+              margin-right: 40px !important;
+            }
+          }
+        }
+        p {
+          color: $color-white;
+        }
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.submit {
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  transform: translateX(-50%);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+  @include tablet-min {
+    bottom: 50px;
+  }
+  @include desktop-min {
+    bottom: 75px;
+    width: 300px;
+  }
+  background-color: $color-almostred;
+  background-image: linear-gradient(45deg, $color-almostred 0%, $color-almostred 65%, $color-purple 90%);
+  background-position: 100% 0;
+  background-size: 200% 200%;
+  border-radius: 10px;
+  font-family: $font-Geometria;
+  color: $color-white;
+  box-shadow: 0px 0px 15px rgba($color-almostred,0.4);
+  transition: background-position 0.5s, box-shadow 0.5s, color 0.5s;
+  border: none;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    background-position: 0 0;
+    color: darken($color-white, 10%);
+  }
+}
